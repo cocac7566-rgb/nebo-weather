@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#8ec8f5" />
+  <title>Небо — погода</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='10' fill='%23e25b2a'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-sky="clear-day">
+  <div class="atmosphere" aria-hidden="true">
+    <div class="orb"></div>
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+    <div class="precip"></div>
+  </div>
+
+  <div class="app">
+    <header class="top">
+      <p class="logo">Небо</p>
+      <form class="search" id="search-form" role="search">
+        <label class="sr-only" for="city">Місто</label>
+        <input id="city" type="search" placeholder="Знайти місто" autocomplete="off" enterkeyhint="search" />
+        <button class="search-go" type="submit" aria-label="Шукати">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="6" />
+            <path d="M15.5 15.5 20 20" />
+          </svg>
+        </button>
+        <ul class="suggest" id="suggest" role="listbox" hidden></ul>
+      </form>
+      <div class="actions">
+        <button class="icon-btn" id="geo" type="button" aria-label="Моє місцезнаходження">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="3" />
+            <circle cx="12" cy="12" r="7.2" />
+            <path d="M12 2.8v2.2M12 19v2.2M2.8 12h2.2M19 12h2.2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="chips" id="chips">
+      <button class="chip" type="button" data-city="Київ">Київ</button>
+      <button class="chip" type="button" data-city="Львів">Львів</button>
+      <button class="chip" type="button" data-city="Одеса">Одеса</button>
+      <button class="chip" type="button" data-city="Харків">Харків</button>
+      <button class="chip" type="button" data-city="Дніпро">Дніпро</button>
+      <button class="chip" type="button" data-city="Ужгород">Ужгород</button>
+    </div>
+
+    <p class="status" id="status" role="status"></p>
+    <main id="stage"></main>
+    <footer class="foot">Дані: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></footer>
+  </div>
+
+  <noscript>
+    <p class="noscript">Увімкніть JavaScript, щоб бачити погоду.</p>
+  </noscript>
+  <script src="app.js"></script>
+</body>
+</html>
